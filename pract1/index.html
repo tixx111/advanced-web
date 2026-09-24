@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search and explore public GitHub repositories by username.">
+  <title>GitHub Repository Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="home">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="GitHub Repository Explorer home">
+        <span class="brand-mark" aria-hidden="true">G</span>
+        <span>Repo<span class="brand-accent">Scout</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a class="nav-link active" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#search">Search</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">GitHub repository explorer</p>
+        <h1>Discover what<br><span>developers build.</span></h1>
+        <p class="hero-text">Search any public GitHub profile and explore their repositories, languages, and most-loved projects.</p>
+        <a class="hero-link" href="#search">Start exploring <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="code-card">
+          <span class="code-line muted">&lt;repository&gt;</span>
+          <span class="code-line"><i>name</i> <b>:</b> <em>“awesome-project”</em></span>
+          <span class="code-line"><i>stars</i> <b>:</b> <strong>★ 128</strong></span>
+          <span class="code-line muted">&lt;/repository&gt;</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-section" id="search" aria-labelledby="search-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / Find a profile</p>
+          <h2 id="search-title">Who are you curious about?</h2>
+        </div>
+        <p class="section-note">Public repositories only.<br>Powered by the GitHub REST API.</p>
+      </div>
+      <form class="search-form" id="search-form" novalidate>
+        <label for="username">GitHub username</label>
+        <div class="input-row">
+          <div class="input-wrap">
+            <span class="input-prefix" aria-hidden="true">@</span>
+            <input id="username" name="username" type="text" placeholder="e.g. octocat" autocomplete="username" maxlength="39" required>
+          </div>
+          <button type="submit" class="primary-button">Search repositories <span aria-hidden="true">↗</span></button>
+        </div>
+        <p class="form-message" id="form-message" role="alert"></p>
+      </form>
+    </section>
+
+    <section class="results-section" id="results" aria-labelledby="results-title">
+      <div class="results-topline">
+        <div>
+          <p class="eyebrow">02 / Results</p>
+          <h2 id="results-title">Repositories</h2>
+        </div>
+        <p class="result-summary" id="result-summary" aria-live="polite">Search for a username to begin.</p>
+      </div>
+      <div class="toolbar" id="toolbar" hidden>
+        <div class="filter-group">
+          <label for="language-filter">Language</label>
+          <select id="language-filter">
+            <option value="all">All languages</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="sort-select">Sort by</label>
+          <select id="sort-select">
+            <option value="stars-desc">Stars: high to low</option>
+            <option value="stars-asc">Stars: low to high</option>
+            <option value="name-asc">Name: A to Z</option>
+            <option value="name-desc">Name: Z to A</option>
+          </select>
+        </div>
+      </div>
+      <div class="status-panel" id="status-panel">
+        <div class="status-icon" aria-hidden="true">⌕</div>
+        <h3>Ready when you are</h3>
+        <p>Enter a GitHub username above to see their public repositories.</p>
+      </div>
+      <div class="repository-grid" id="repository-grid"></div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <p class="eyebrow">03 / About this tool</p>
+      <h2 id="about-title">A clearer way to browse<br>open-source work.</h2>
+      <p>RepoScout makes it easy to scan a developer's public work. Results come directly from GitHub and can be filtered by language or sorted by popularity and name.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>RepoScout <span aria-hidden="true">·</span> Built for curious minds</p>
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer">Visit GitHub ↗</a>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
